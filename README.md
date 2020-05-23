@@ -40,11 +40,11 @@ contraseña: 1234
 
 - Tecnico: 
 
-- tipo documento : cc
+tipo documento : cc
 cedula: 66666
 contraseña: 1234
 
--tipo documento : cc
+tipo documento : cc
 cedula: 888888
 contraseña: 1234
 
