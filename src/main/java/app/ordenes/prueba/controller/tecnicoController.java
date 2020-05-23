@@ -32,6 +32,13 @@ public class tecnicoController {
 		
 	}
 	
+	@RequestMapping(method = RequestMethod.GET,path="/{cedula}/{tipocc}/{passw}")
+	public ResponseEntity<tecnico> getTecnicoLogin(@PathVariable("cedula") int cedula,@PathVariable("tipocc") String tipocc,@PathVariable("passw") String passw){
+		tecnico tecnico = tecnicoServ.getTecnicoLogin(cedula, tipocc, passw);
+		return ResponseEntity.ok(tecnico);
+		
+	}
+	
 	@RequestMapping(method = RequestMethod.GET,path="/all")
 	public ResponseEntity<List<tecnico>> getAllTecnico(){
 		return ResponseEntity.ok(tecnicoServ.getAllTecnico());

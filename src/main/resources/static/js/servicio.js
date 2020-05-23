@@ -42,7 +42,7 @@ var servicio = (function() {
 					+ ','
 					+ '\''
 					+ datos[i].calificacion
-					+ '\')">agregar</button>'
+					+ '\')">Ver Detalles</button>'
 					+ '</small>' + '</div>' + '</div>';
 			$("#servicios").append(serv);
 

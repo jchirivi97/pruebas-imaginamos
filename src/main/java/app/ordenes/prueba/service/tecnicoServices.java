@@ -10,6 +10,8 @@ public interface tecnicoServices {
 	
 	tecnico getTecnico(int cedula,String tipocc);
 	
+	tecnico getTecnicoLogin(int cedula, String tipocc,String password);
+	
 	List<tecnico> getAllTecnico();
 	
 	tecnico getTecnicoTicket(int ticket);

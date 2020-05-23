@@ -64,7 +64,33 @@ public class tenicoSolicitudPersistence {
 			pstmt = c.prepareStatement(sql, ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
 			ResultSet rs = pstmt.executeQuery();
 			c.close();
-			if (rs.next()) {
+			while (rs.next()) {
+				tecnicoSolicit = new tecnicoSolicitud(rs.getInt("token"),rs.getInt("ticket"),rs.getInt("tecnico"),rs.getString("tipocc"));
+				all.add(tecnicoSolicit);
+			}
+			pstmt.close();
+			rs.close();
+			return all;
+		} catch (Exception ex) {
+			Logger.getLogger(tenicoSolicitudPersistence.class.getName()).log(Level.SEVERE, null, ex);
+			return null;
+		}
+	}
+	
+	public List<tecnicoSolicitud> getAllTenicoSolicitudes(int cedula,String tipocc) {
+		PreparedStatement pstmt = null;
+		List<tecnicoSolicitud> all = new ArrayList<tecnicoSolicitud>();
+		try {
+			Class.forName("org.postgresql.Driver");
+			getConnection();
+			c.setAutoCommit(false);
+			String sql = "select * from tecnicosolicitud where tecnico = ? and tipocc = ?";
+			pstmt = c.prepareStatement(sql, ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+			pstmt.setInt(1, cedula);
+			pstmt.setString(2, tipocc);
+			ResultSet rs = pstmt.executeQuery();
+			c.close();
+			while (rs.next()) {
 				tecnicoSolicit = new tecnicoSolicitud(rs.getInt("token"),rs.getInt("ticket"),rs.getInt("tecnico"),rs.getString("tipocc"));
 				all.add(tecnicoSolicit);
 			}

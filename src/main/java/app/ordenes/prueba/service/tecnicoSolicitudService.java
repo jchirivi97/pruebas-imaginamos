@@ -10,5 +10,7 @@ public interface tecnicoSolicitudService {
 
 	void saveTenicoSolicitud(int token,int ticket,int tecnico,String tipocc);
 	
+	List<tecnicoSolicitud> getAllTenicoSolicitudes(int cedula,String tipocc);
+	
 	List<tecnicoSolicitud> getAllTenicoSolicitud ();
 }

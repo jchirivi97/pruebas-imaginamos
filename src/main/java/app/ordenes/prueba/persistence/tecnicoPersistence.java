@@ -53,6 +53,32 @@ public class tecnicoPersistence {
 		}
 	}
 	
+	public tecnico getTecnicoLogin(int cedula, String tipocc,String password) {
+		PreparedStatement pstmt = null;
+		try {
+			Class.forName("org.postgresql.Driver");
+			getConnection();
+			c.setAutoCommit(false);
+			String sql = "select * from tecnico where cedula = ? and tipocc = ? and passw = ? ";
+			pstmt = c.prepareStatement(sql, ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+			pstmt.setInt(1, cedula);
+			pstmt.setString(2, tipocc);
+			pstmt.setString(3, password);
+			ResultSet rs = pstmt.executeQuery();
+			System.out.println("rssssssssssss: " + rs);
+			c.close();
+			if (rs.next()) {
+				System.out.println("reproduccion: ");
+				tecnic = new tecnico(rs.getInt("cedula"),rs.getString("tipocc"),rs.getString("nombre"),rs.getString("apellido"),rs.getString("correo"),rs.getInt("celular"),rs.getString("passw"));
+			}
+			pstmt.close();
+			rs.close();
+			return tecnic;
+		} catch (Exception ex) {
+			Logger.getLogger(tecnicoPersistence.class.getName()).log(Level.SEVERE, null, ex);
+			return null;
+		}
+	}
 	
 	public tecnico getTecnicoTicket(int ticket) {
 		PreparedStatement pstmt = null;

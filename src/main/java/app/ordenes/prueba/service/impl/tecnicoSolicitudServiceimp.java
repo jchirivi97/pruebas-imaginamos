@@ -34,6 +34,12 @@ public class tecnicoSolicitudServiceimp implements tecnicoSolicitudService{
 		conexion();
 		return tenicoSolic.getAllTenicoSolicitud();
 	}
+
+	@Override
+	public List<tecnicoSolicitud> getAllTenicoSolicitudes(int cedula, String tipocc) {
+		conexion();
+		return tenicoSolic.getAllTenicoSolicitudes(cedula, tipocc) ;
+	}
 	
 	
 	

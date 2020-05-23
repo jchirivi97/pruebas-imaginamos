@@ -42,4 +42,10 @@ public class tecnicoServiceImp implements tecnicoServices {
 		return tecnicoP.getTecnicoTicket(ticket);
 	}
 
+	@Override
+	public tecnico getTecnicoLogin(int cedula, String tipocc, String password) {
+		conexion();
+		return tecnicoP.getTecnicoLogin(cedula, tipocc, password);
+	}
+
 }

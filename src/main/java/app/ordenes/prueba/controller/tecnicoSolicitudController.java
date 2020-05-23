@@ -35,4 +35,10 @@ public class tecnicoSolicitudController {
 	public ResponseEntity<List<tecnicoSolicitud>> getAllTecnicoSolicitud(){
 		return ResponseEntity.ok(tecnicoSolSer.getAllTenicoSolicitud());
 	}
+	
+	@RequestMapping(method = RequestMethod.GET,path="/all/{cedula}/{tipocc}")
+	public ResponseEntity<List<tecnicoSolicitud>> getAllTecnicoSolicitudes(@PathVariable("cedula") int cedula,@PathVariable("tipocc") String tipocc){
+		return ResponseEntity.ok(tecnicoSolSer.getAllTenicoSolicitudes(cedula, tipocc));
+	}
+	
 }
