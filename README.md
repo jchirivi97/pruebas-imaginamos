@@ -28,7 +28,7 @@ con un endpoint que retorne los servicios del técnico en formato JSON con el li
 
 ## Despliegue
 
-Heroku: 
+Heroku: https://pruebas-imaginamos.herokuapp.com/
 
 ## Usuarios de Pruebas
 
