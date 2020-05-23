@@ -35,4 +35,10 @@ public class servicioServicesImp implements servicioService {
 		return  servicioP.getAllServicio();
 	}
 
+	@Override
+	public List<servicio> getServicioSolicitud(int ticket) {
+		conexion();
+		return servicioP.getServicioSolicitud(ticket);
+	}
+
 }

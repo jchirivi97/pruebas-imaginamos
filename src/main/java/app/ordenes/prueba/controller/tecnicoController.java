@@ -38,7 +38,12 @@ public class tecnicoController {
 		
 	}
 
-
+	@RequestMapping(method = RequestMethod.GET,path="/{ticket}")
+	public ResponseEntity<tecnico> getTecnicoSolcitud(@PathVariable("ticket") int ticket){
+		tecnico tecnico = tecnicoServ.getTecnicoTicket(ticket); 
+		return ResponseEntity.ok(tecnico);
+		
+	}
 	
 	
 }

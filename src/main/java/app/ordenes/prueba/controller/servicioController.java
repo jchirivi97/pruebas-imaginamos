@@ -35,4 +35,9 @@ public class servicioController {
 		return ResponseEntity.ok(servicioSev.getAllServicio());
 	}
 	
+	@RequestMapping(method = RequestMethod.GET,path="/solicitud/{ticket}")
+	public ResponseEntity<List<servicio>> getServicioSolicitud(@PathVariable("ticket")int ticket){
+		return ResponseEntity.ok(servicioSev.getServicioSolicitud(ticket));
+	}
+	
 }

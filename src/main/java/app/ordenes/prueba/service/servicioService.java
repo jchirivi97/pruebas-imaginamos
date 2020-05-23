@@ -11,4 +11,6 @@ public interface servicioService {
 	servicio getSolicitud (int idservicio);
 	
 	List<servicio> getAllServicio ();
+	
+	List<servicio> getServicioSolicitud (int ticket);
 }

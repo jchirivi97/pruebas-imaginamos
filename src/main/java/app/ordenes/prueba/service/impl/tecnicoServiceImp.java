@@ -36,4 +36,10 @@ public class tecnicoServiceImp implements tecnicoServices {
 		return tecnicoP.getAllTecnico();
 	}
 
+	@Override
+	public tecnico getTecnicoTicket(int ticket) {
+		conexion();
+		return tecnicoP.getTecnicoTicket(ticket);
+	}
+
 }

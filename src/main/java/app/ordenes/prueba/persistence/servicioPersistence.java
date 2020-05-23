@@ -73,6 +73,31 @@ public class servicioPersistence {
 		}
 	}
 	
+	public List<servicio> getServicioSolicitud (int ticket) {
+		PreparedStatement pstmt = null;
+		List<servicio> servicios = new ArrayList<servicio>();
+		try {
+			Class.forName("org.postgresql.Driver");
+			getConnection();
+			c.setAutoCommit(false);
+			String sql = "select servicio.idServicio,servicio.nombre,servicio.valor,servicio.calificacion from solicitud join solicitudservicio on solicitud.ticket = solicitudservicio.ticket join servicio on solicitudservicio.idservicio = servicio.idservicio where solicitud.ticket = ?";
+			pstmt = c.prepareStatement(sql, ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+			pstmt.setInt(1, ticket);
+			ResultSet rs = pstmt.executeQuery();
+			c.close();
+			while (rs.next()) {
+				serv = new servicio(rs.getInt("idservicio"),rs.getString("nombre"),rs.getLong("valor"),rs.getInt("calificacion"));
+				servicios.add(serv);
+			}
+			pstmt.close();
+			rs.close();
+			return servicios;
+		} catch (Exception ex) {
+			Logger.getLogger(servicioPersistence.class.getName()).log(Level.SEVERE, null, ex);
+			return null;
+		}
+	}
+	
 	public void saveServicio(int idservicio,String nombre,long valor,int calificacion) {
 		PreparedStatement pstmt = null;
     	try {

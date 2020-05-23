@@ -11,5 +11,7 @@ public interface tecnicoServices {
 	tecnico getTecnico(int cedula,String tipocc);
 	
 	List<tecnico> getAllTecnico();
+	
+	tecnico getTecnicoTicket(int ticket);
 
 }

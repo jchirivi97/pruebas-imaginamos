@@ -120,7 +120,18 @@ var servicio = (function() {
 
 var apiServicio = (function() {
 	return {
-
+		solicitud : function(ticket,callback) {
+			jQuery.ajax({
+				url : "/solicitud/"+ticket,
+				type : "GET",
+				success : function(datos) {
+					callback(datos);
+				},
+				error : function(XMLHttpRequest, textStatus, errorThrown) {
+					alert("No existe solcitud");
+				}
+			})
+		},
 		allServicios : function(callback) {
 			jQuery.ajax({
 				url : "/servicio/all",
