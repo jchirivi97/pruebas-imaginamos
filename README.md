@@ -34,19 +34,19 @@ Heroku:
 
 - Cliente :
 
-tipo documento : cc
-cedula: 123456789
-contraseña: 1234
+  - tipo documento : cc
+  - cedula: 123456789
+  - contraseña: 1234
 
 - Tecnico: 
 
-tipo documento : cc
-cedula: 66666
-contraseña: 1234
+  - tipo documento : cc
+  - cedula: 66666
+  - contraseña: 1234
 
-tipo documento : cc
-cedula: 888888
-contraseña: 1234
+  - tipo documento : cc
+  - cedula: 888888
+  - contraseña: 1234
 
 ## Diagrama de Datos
 
