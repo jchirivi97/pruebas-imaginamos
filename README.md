@@ -1,11 +1,11 @@
-### Prueba Imaginamos
+## Prueba Imaginamos
 
 
-##Elaborado por:
+## Elaborado por:
 
 Jimmy Armando Chirivi Nivia
 
-##Descripcion
+## Descripcion
 
 Se requiere construir un sistema de órdenes de servicio para una empresa que ofrece servicios de mantenimiento e
 instalación de soportes para televisores. Los clientes pueden hacer una solicitud de servicio generando un ticket a través
