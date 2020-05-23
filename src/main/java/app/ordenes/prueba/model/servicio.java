@@ -44,12 +44,6 @@ public class servicio {
 		return valor;
 	}
 
-
-	public void setValor(int valor) {
-		this.valor = valor;
-	}
-	
-
 	public int getCalificacion() {
 		return calificacion;
 	}

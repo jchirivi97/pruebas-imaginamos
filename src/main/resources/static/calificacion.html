@@ -1,10 +1,65 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Calificacion</title>
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<!--JQUERY-->
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- FRAMEWORK BOOTSTRAP para el estilo de la pagina-->
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+<script
+	src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<link
+	href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+	rel="stylesheet" id="bootstrap-css">
+
+<link rel="stylesheet" type="text/css" href="/css/loginUser.css" />
+<link rel="stylesheet" type="text/css" href="/css/calificacion.css" />
+
+<script src="js/tecnico.js"></script>
+<script src="js/servicio.js"></script>
+
 </head>
 <body>
 
+	<nav class="navbar navbar-dark bg-primary">
+		<li class="nav-item"><a class="nav-link" href="paginaUser.html">Inicio</a></li>
+		<li class="nav-item"><a class="nav-link"
+			href="solicitudServicio.html">Solicitar Servicio</a></li>
+		<li class="nav-item"><a class="nav-link" href="seguimiento.html">Seguimiento
+				del Servicio</a></li>
+		<li class="nav-item"><a class="nav-link" href="#">Cerrar
+				Seción</a></li>
+	</nav>
+
+	<center>
+		<h1>Califica el servicio brindado</h1>
+	</center>
+
+	<div class="card">
+		<div class="card-header">Calificación</div>
+		<div class="card-body">
+			<h5 class="card-title">Deberas calificar el servicio</h5>
+			<p class="card-text">Donde uno es muy malo y cinco  es muy bueno</p>
+			<select class="form-control" id="calif" style="width: 20rem;">
+						<option>1</option>
+						<option>2</option>
+						<option>3</option>
+						<option>4</option>
+						<option>5</option>
+					</select>
+			<button type="button" class="btn btn-success" id="calificiacion"
+				onclick="tecnico.guardarCalifi()">Calificar</button>
+		</div>
 </body>
 </html>

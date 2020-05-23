@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -21,7 +22,7 @@ public class servicioController {
 	servicioService servicioSev;
 	
 	@RequestMapping(method = RequestMethod.POST)
-	public void saveService(servicio service) {
+	public void saveService(@RequestBody servicio service) {
 		servicioSev.saveSolicitud(service.getIdservicio(),service.getNombre(),service.getValor(),service.getCalificacion());
 	}
 	
@@ -38,6 +39,12 @@ public class servicioController {
 	@RequestMapping(method = RequestMethod.GET,path="/solicitud/{ticket}")
 	public ResponseEntity<List<servicio>> getServicioSolicitud(@PathVariable("ticket")int ticket){
 		return ResponseEntity.ok(servicioSev.getServicioSolicitud(ticket));
+	}
+	
+	@RequestMapping(method = RequestMethod.PUT,path="/update")
+	public void updateService(@RequestBody servicio serv) {
+		System.out.println("dsdffddfsdfs "+ serv.getCalificacion());
+		servicioSev.updateServicio(serv.getIdservicio(),serv.getCalificacion());
 	}
 	
 }

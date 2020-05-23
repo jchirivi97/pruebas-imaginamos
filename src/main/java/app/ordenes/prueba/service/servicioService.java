@@ -13,4 +13,6 @@ public interface servicioService {
 	List<servicio> getAllServicio ();
 	
 	List<servicio> getServicioSolicitud (int ticket);
+	
+	void updateServicio(int idservicio, int calificacion);
 }

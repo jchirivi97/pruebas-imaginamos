@@ -41,4 +41,10 @@ public class servicioServicesImp implements servicioService {
 		return servicioP.getServicioSolicitud(ticket);
 	}
 
+	@Override
+	public void updateServicio(int idservicio, int calificacion) {
+		conexion();
+		servicioP.updateServicio(idservicio, calificacion);		
+	}
+
 }

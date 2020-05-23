@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Seguimiento Actual</title>
+<title>Seguimiento</title>
 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
@@ -26,9 +26,10 @@
 
 <script src="js/tecnico.js"></script>
 <script src="js/servicio.js"></script>
-</head>
-<body onload="tecnico.ticketInfo()">
 
+</head>
+<body>
+	
 	<nav class="navbar navbar-dark bg-primary">
 		<li class="nav-item"><a class="nav-link" href="paginaUser.html">Inicio</a></li>
 		<li class="nav-item"><a class="nav-link"
@@ -40,30 +41,20 @@
 	</nav>
 
 	<center>
-		<h1>¡Seguimiento de la Solicitud de Servicio!</h1>
+		<h1>¡Hazle seguimiento a tus solicitudes!</h1>
 	</center>
-	<center>
-		<div class="card">
-			<div class="card-header">
-				<h2 id="ticket"></h2>
-			</div>
-			<div class="card-body">
-				<h5 class="card-title">Servicios</h5>
-				<ul class="list-group" id="servicios">
-				</ul>
-				<h5 id="total"></h5>
-				<h5 class="card-title">Tecnico</h5>
-				<ul class="list-group" id="tecnico">
-				</ul>
-			</div>
+
+	<div class="card text-center">
+		<div class="card-header">Buscar Solicitud de Servicio</div>
+		<div class="card-body">
+			<h5 class="card-title">ingresa el numero de Ticket de la solicitud</h5>
+			<input type="text" class="form-control" placeholder="ticket" id="bticket" style="width: 30rem;">
+			<button type="button" class="btn btn-primary" onclick="apitecnico.irVerEstadoAnyWhere()">Buscar</button>
 		</div>
+	</div>
 
-		<div class="card" style="width: 18rem;" id="estado"></div>
 
-	</center>
-	
-	<h3>Para relizar la Calificación del servicio, el servicio debe estar en estado finalizado</h3>
-	<button type="button" class="btn btn-success" id="calificiacion"
-			onclick="tecnico.irCalificacion()">Calificar Servicio</button>
+
+
 </body>
 </html>

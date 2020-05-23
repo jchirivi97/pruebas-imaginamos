@@ -2,6 +2,7 @@ var tecnico = (function() {
 
 	var cantTokens = 0;
 	var total = 0;
+	var servis = [];
 	var tecnicos = function() {
 		apitecnico.allTecnicos(vertecnicos);
 	}
@@ -41,6 +42,7 @@ var tecnico = (function() {
 				var linea = '<li class="list-group-item disabled">'
 						+ datos[i].nombre + " $ " + datos[i].valor + '</li>'
 				$("#servicios").append(linea);
+				servis.push(datos[i]);
 				total = parseInt(datos[i].valor, 10) + parseInt(total, 10);
 			}
 			document.getElementById("total").innerHTML = "TOTAL : $" + total;
@@ -62,6 +64,7 @@ var tecnico = (function() {
 		serviciosSolicitud(sessionStorage.getItem("ticket"));
 		tecnicosSolicitud(sessionStorage.getItem("ticket"));
 		infoSolicitud(sessionStorage.getItem("ticket"));
+		document.getElementById("calificiacion").style.display = "none";
 	}
 	
 
@@ -90,17 +93,35 @@ var tecnico = (function() {
 				+'</div>'
 		}
 		else{
-			linea= '<img class="card-img-top" src="/files/img/finalizado.jpg" alt="Card image cap">'
+			linea= '<img class="card-img-top" src="/files/img/finalizado.png" alt="Card image cap">'
 				+'<div class="card-body">'
 				+'<p class="card-text">El estado de tu solicitud esta en: Finalizado</p>'
 				+'</div>'
+				document.getElementById("calificiacion").style.display = "block";
 		}
 		$("#estado").append(linea);
+	}
+	
+	var calificacion =function(){
+		var calificacion = document.getElementById("calif").value;
+		var lista = JSON.parse(sessionStorage.getItem("servicios"));
+		for(var i = 0; i < lista.length; i++){
+			lista[i].calificacion = calificacion;
+			apitecnico.updateCalificacion(lista[i]);
+		}
+		
+	}
+	
+	var irCalif = function(){
+		sessionStorage.setItem("servicios",JSON.stringify(servis));
+		location.href = "/calificacion.html";
 	}
 
 	return {
 		generar : tokens,
-		ticketInfo : verinfoTicket
+		ticketInfo : verinfoTicket,
+		irCalificacion : irCalif,
+		guardarCalifi : calificacion
 	}
 
 })();
@@ -172,12 +193,30 @@ var apitecnico = (function() {
 				}
 			});
 		},
+		updateCalificacion : function(servicio) {
+			jQuery.ajax({
+				url: "/servicio/update/",
+				type: "PUT",
+				data: JSON.stringify(servicio),
+				contentType: "application/json",
+				success: function(){
+					alert("calificacion almacenada");
+					location.href = "/paginaUser.html"
+				},error: function(XMLHttpRequest, textStatus, errorThrown) { 
+                    alert("Intente nuevamente"); 
+                }
+			});
+		},
+		
 		irVerEstado : function(){
 			location.href = "/seguimientoActual.html";
 		},
 		
-		irCalificacion: function(){
-			location.href = "/calificacion.html";
-		}
+		irVerEstadoAnyWhere : function(){
+			sessionStorage.setItem("ticket",document.getElementById("bticket").value);
+			location.href = "/seguimientoActual.html";
+			
+		}		
+		
 	}
 })();

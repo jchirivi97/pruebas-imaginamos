@@ -1,10 +1,12 @@
 package app.ordenes.prueba.persistence;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
@@ -118,4 +120,28 @@ public class servicioPersistence {
             Logger.getLogger(servicioPersistence.class.getName()).log(Level.SEVERE, null, ex);
         }
 	}
+	
+	public void updateServicio(int idservicio, int calificacion) {
+		Statement stmt = null;
+    	try {
+            Class.forName("org.postgresql.Driver");
+            getConnection();
+            c.setAutoCommit(false);
+            String sql =
+            
+            "UPDATE servicio SET calificacion = '" + calificacion + "'  WHERE idservicio = '" + idservicio + "' ";
+            
+            
+            stmt = c.createStatement();
+            stmt.executeUpdate(sql);
+            stmt.close();
+            c.commit();
+            c.close();
+        } catch (Exception ex) {
+            Logger.getLogger(solicitudPersistence.class.getName()).log(Level.SEVERE, null, ex);
+        }
+	}
+	
+	
+	
 }
