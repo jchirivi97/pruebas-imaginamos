@@ -30,6 +30,24 @@ con un endpoint que retorne los servicios del técnico en formato JSON con el li
 
 Heroku: 
 
+## Usuarios de Pruebas
+
+- Cliente :
+
+  - tipo documento : cc
+  - cedula: 123456789
+  - contraseña: 1234
+
+- Tecnico: 
+
+  - tipo documento : cc
+  - cedula: 66666
+  - contraseña: 1234
+
+  - tipo documento : cc
+  - cedula: 888888
+  - contraseña: 1234
+
 ## Diagrama de Datos
 
 ![Captura](https://user-images.githubusercontent.com/48265107/82731299-64b37c80-9ccb-11ea-864c-3935ebcc7174.JPG)
