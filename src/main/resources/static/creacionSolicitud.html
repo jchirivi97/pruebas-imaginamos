@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Insert title here</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<!--JQUERY-->
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- FRAMEWORK BOOTSTRAP para el estilo de la pagina-->
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+<script
+	src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<link
+	href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+	rel="stylesheet" id="bootstrap-css">
+
+<link rel="stylesheet" type="text/css" href="/css/loginUser.css" />
+
+<script src="js/tecnico.js"></script>
+
+</head>
+<body onload="tecnico.generarToken()">
+	<nav class="navbar navbar-dark bg-primary">
+		<li class="nav-item"><a class="nav-link" href="paginaUser.html">Inicio</a></li>
+		<li class="nav-item"><a class="nav-link"
+			href="solicitudServicio.html">Solicitar Servicio</a></li>
+		<li class="nav-item"><a class="nav-link" href="#">Seguimiento
+				del Servicio</a></li>
+		<li class="nav-item"><a class="nav-link" href="#">Cerrar
+				Seción</a></li>
+	</nav>
+
+
+	<center>
+		<h1>¡Informacion de la Solicitud de Servicio!</h1>
+	</center>
+
+	<div class="card w-75" style="position: relative; margin: 100px 0 0 100px;">
+		<div class="card-body">
+			<h5 class="card-title" id="token"></h5>
+			<p class="card-text" >Tecnico Asignado:</p>
+			<p class="card-text" id="nombre"></p>
+			<p class="card-text" id="telTec"></p>
+		</div>
+	</div>
+	
+	<div>
+		<button type="button" class="btn btn-primary" id="seguimiento">Seguimiento Servicio</button>
+		<button type="button" class="btn btn-success" id="calificiacion">Calificar Servicio</button>
+	</div>
+
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Pedir Servicio</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<!--JQUERY-->
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- FRAMEWORK BOOTSTRAP para el estilo de la pagina-->
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+<script
+	src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<link
+	href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+	rel="stylesheet" id="bootstrap-css">
+
+<link rel="stylesheet" type="text/css" href="/css/loginUser.css" />
+
+<script src="js/servicio.js"></script>
+
+</head>
+<body onload="servicio.verAllserv()">
+
+	<nav class="navbar navbar-dark bg-primary">
+		<li class="nav-item"><a class="nav-link" href="paginaUser.html">Inicio</a></li>
+		<li class="nav-item"><a class="nav-link"
+			href="solicitudServicio.html">Solicitar Servicio</a></li>
+		<li class="nav-item"><a class="nav-link" href="#">Seguimiento
+				del Servicio</a></li>
+		<li class="nav-item"><a class="nav-link" href="#">Cerrar
+				Seción</a></li>
+	</nav>
+
+	<center>
+		<h1>¡Escoge los servicios que necesitas!</h1>
+	</center>
+
+	<h3 id="tick"></h3>
+	<div class="card-group" id="servicios"
+		style="position: relative; margin: 100px 0 0 0px;"></div>
+
+	<ul class="list-group" id="servEscogidos" style="width: 30rem;">
+		<li class="list-group-item disabled">Servicios Agregados</li>
+
+	</ul>
+	<h5 id="total"></h5>
+	<br></br>
+	<center>
+		<h5 id="informacion">¿Ya teminaste?,Continua para inciar su servicio</h5>
+		<button type="button" class="btn btn-primary" id="continuar" onclick="servicio.saveSolicitud()">Continuar</button>
+	</center>
+</body>
+</html>

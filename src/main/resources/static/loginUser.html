@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>login</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<!--JQUERY-->
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- FRAMEWORK BOOTSTRAP para el estilo de la pagina-->
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+<script
+	src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<link
+	href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+	rel="stylesheet" id="bootstrap-css">
+
+<link rel="stylesheet" type="text/css" href="/css/loginUser.css" />
+<script src="js/index.js"></script>
+
+</head>
+<body>
+	<div class="wrapper fadeInDown">
+		<div id="formContent">
+			<!-- Tabs Titles -->
+
+			<!-- Icon -->
+			<div class="fadeIn first">
+				<img src="/files/img/usuario.jpg" id="icon" alt="User Icon" />
+			</div>
+
+			<!-- Login Form -->
+			<form action="javascript:usuario.ingreso()">
+				<center>
+					<select class="form-control" id="tipocc" style="width: 20rem;">
+						<option>Tipo de documento</option>
+						<option>cc</option>
+						<option>ce</option>
+						<option>pas</option>
+					</select>
+				
+				<input type="text" class="form-control" placeholder="cedula" id="cedula" style="width: 20rem;">					
+				<input type="password" class="form-control" placeholder="Contraseña" id="password" style="width: 20rem;">
+				</center>
+				<br></br>
+				<button type="submit" class="btn btn-primary">Login</button>
+			</form>
+		</div>
+	</div>
+
+
+</body>
+</html>
