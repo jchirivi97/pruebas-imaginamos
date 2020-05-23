@@ -5,6 +5,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
@@ -77,21 +78,23 @@ public class tenicoSolicitudPersistence {
 	}
 	
 	public void saveTenicoSolicitud(int token,int ticket,int tecnico,String tipocc) {
-		PreparedStatement pstmt = null;
+		Statement stmt = null;
     	try {
-            Class.forName("org.postgresql.Driver");
+    		Class.forName("org.postgresql.Driver");
             getConnection();
             c.setAutoCommit(false);
-            String sql = "insert into tecnicosolicitud values(?,?,?,?)";
-            pstmt = c.prepareStatement(sql, ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
-            pstmt.setInt(1, token);
-            pstmt.setInt(2, ticket);
-            pstmt.setInt(3, tecnico);
-            pstmt.setString(4, tipocc);
-            ResultSet rs = pstmt.executeQuery();
+            stmt = c.createStatement();
+            String sql = 
+            		
+            "INSERT INTO tecnicosolicitud (token,ticket,tecnico,tipocc) "
+            + "VALUES ('" + ticket + "','" + ticket + "','" + tecnico
+            + "','" + tipocc + "');";
+            
+            
+            stmt.executeUpdate(sql);
+            stmt.close();
+            c.commit();
             c.close();
-            pstmt.close();
-            rs.close();
         } catch (Exception ex) {
             Logger.getLogger(tenicoSolicitudPersistence.class.getName()).log(Level.SEVERE, null, ex);
         }

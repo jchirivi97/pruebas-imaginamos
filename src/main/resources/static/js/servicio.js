@@ -29,7 +29,7 @@ var servicio = (function() {
 					+ '<div class="card-footer">'
 					+ '<small class="text-muted">'
 					+ '<button type="button" class="btn btn-primary" onclick="servicio.agregar(\''
-					+ datos[i].id
+					+ datos[i].idservicio
 					+ '\''
 					+ ','
 					+ '\''
@@ -95,10 +95,10 @@ var servicio = (function() {
 			"tipocc" : sessionStorage.getItem("tipocc")
 		};
 		apiServicio.saveSolcitud(solicitud);
-		guardarServicios();
+
 	}
-	
-	var guardarServicios = function(){
+
+	var guardarServicios = function() {
 		for (var i = 0; i < litsE.length; i++) {
 			var solicitudservicio = {
 				"ticket" : sessionStorage.getItem("ticket"),
@@ -106,12 +106,14 @@ var servicio = (function() {
 			};
 			apiServicio.saveSolcitudServicio(solicitudservicio);
 		}
+		location.href = "/creacionSolicitud.html";
 	}
 
 	return {
 		verAllserv : servicios,
 		agregar : agregarSevicio,
-		saveSolicitud : guardar
+		saveSolicitud : guardar,
+		save : guardarServicios
 	}
 
 })();
@@ -139,6 +141,7 @@ var apiServicio = (function() {
 				contentType : "application/json",
 				success : function() {
 					alert("solicitud registrada");
+					servicio.save();
 				},
 				error : function(XMLHttpRequest, textStatus, errorThrown) {
 					alert("intente nuevamente");

@@ -1,64 +1,69 @@
-var tecnico = (function(){
-	
-	var cantTokens = 0;	
-	var tecnicos = function(){
+var tecnico = (function() {
+
+	var cantTokens = 0;
+	var tecnicos = function() {
 		apitecnico.allTecnicos(vertecnicos);
 	}
-	
-	var tokens = function(){
+
+	var tokens = function() {
 		apitecnico.allTokens(generarToken);
 		tecnicos();
 	}
-	
-	var vertecnicos = function(datos){
-		var numero = Math.random() * (datos.length - 0) + 0;
-		document.getElementById("nombre").innerHTML = datos[numero].nombre +" "+datos[numero].apellido
-		document.getElementById("telTec").innerHTML = datos[numero].celular
-		
-		var tecnicosolicitud = {"tocken":cantTokens,"ticket":sessionStorage.getItem("ticket"),"tecnico":datos[numero].cedula,"tipocc":datos[numero].tipocc};
+
+	var vertecnicos = function(datos) {
+		var numero = parseInt(Math.random() * (datos.length - 0) + 0, 10);
+		document.getElementById("nombre").innerHTML = datos[numero].nombre
+				+ " " + datos[numero].apellido
+		document.getElementById("telTec").innerHTML = "Celular: "
+				+ datos[numero].celular
+		var tecnicosolicitud = {
+			"tocken" : cantTokens,
+			"ticket" : sessionStorage.getItem("ticket"),
+			"tenico" : datos[numero].cedula,
+			"tipocc" : datos[numero].tipoCC
+		};
 		apitecnico.saveTecnicoSolicitud(tecnicosolicitud);
 	}
-	
-	var generarToken = function(datos){
+
+	var generarToken = function(datos) {
 		cantTokens = datos.length + 1;
-		document.getElementById("token").innerHTML = cantTokens;
+		document.getElementById("token").innerHTML = "TOKEN: " + cantTokens;
 	}
-	
-		
-	return{
-		generarToken =  tokens
+
+	return {
+		generar : tokens
 	}
-	
-	
+
 })();
 
+var apitecnico = (function() {
+	return {
 
-var apitecnico = (function(){
-	return{
-		
-		allTecnicos : function(callback){
+		allTecnicos : function(callback) {
 			jQuery.ajax({
-				url: "/tecnico/all",
-				type: "GET",
-				success: function(datos){
+				url : "/tecnico/all",
+				type : "GET",
+				success : function(datos) {
 					callback(datos);
-				},error: function(XMLHttpRequest, textStatus, errorThrown) { 
-	                alert("no hay tenicos"); 
-	            }
+				},
+				error : function(XMLHttpRequest, textStatus, errorThrown) {
+					alert("no hay tenicos");
+				}
 			})
 		},
-		allTokens : function(callback){
+		allTokens : function(callback) {
 			jQuery.ajax({
-				url: "/tenicoSol/all",
-				type: "GET",
-				success: function(datos){
+				url : "/tenicoSol/all",
+				type : "GET",
+				success : function(datos) {
 					callback(datos);
-				},error: function(XMLHttpRequest, textStatus, errorThrown) { 
-	                alert("no hay tokens"); 
-	            }
+				},
+				error : function(XMLHttpRequest, textStatus, errorThrown) {
+					alert("no hay tokens");
+				}
 			})
 		},
-		saveTecnicoSolicitud : function(tecnicosolicitud){
+		saveTecnicoSolicitud : function(tecnicosolicitud) {
 			jQuery.ajax({
 				url : "/tenicoSol/",
 				type : "POST",
@@ -72,7 +77,6 @@ var apitecnico = (function(){
 				}
 			});
 		}
-		
+
 	}
 })();
-

@@ -22,7 +22,6 @@ public class solicitudServicioController {
 	
 	@RequestMapping(method = RequestMethod.POST)
 	public void saveSolicitudServicio(@RequestBody solicitudServicio soliServ) {
-		System.out.print(soliServ.getTicket() +","+soliServ.getIdservicio());
 		solicitudServ.saveSolicitud(soliServ.getTicket(),soliServ.getIdservicio());		
 	}
 	
